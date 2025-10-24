@@ -15,14 +15,16 @@ export default function App() {
         );
       })};
 </ScrollView> */}
-
+<View style={styles.flatView}>
 <FlatList data={pokemonList} renderItem={({item}) => (
         <View style = {styles.card}>
             <Text style = {styles.cardText}>{item.type}</Text>
             <Text style = {styles.cardText}>{item.name}</Text>
           </View>
 )} 
+keyExtractor={(item,index) => item.id.toString}
  />
+ </View>
     </SafeAreaView>
   );
 }
@@ -32,7 +34,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f5f5f5',
   },
-  scrollView : {
+  flatView : {
     paddingHorizontal : 16
   },
   card :  {
